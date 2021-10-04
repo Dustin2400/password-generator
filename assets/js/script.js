@@ -19,7 +19,7 @@ function generatePassword() {
       passwordLength = window.prompt("How many characters would you like your password to be? (between 8 and 128.)"); 
       passwordLength = parseInt(passwordLength);
     }
-    while (passwordLength <= 8 || passwordLength >= 128 ){
+    while (passwordLength < 8 || passwordLength > 128 ){
       passwordLength = window.prompt("Please pick a number between 8 and 128");
       passwordLength = parseInt(passwordLength);
     }
@@ -83,8 +83,8 @@ function generatePassword() {
     if (specialCharacters) {
       types ++;
     }
-    if (types < 2) {
-      window.alert("Your password needs at least 2 types of characters: lowercase, uppercase, numeric, or special. Please select at leaset 2.");
+    if (types < 1) {
+      window.alert("Please select at least 1 type of character.");
     }
   }
   randomChars="";
@@ -103,6 +103,7 @@ function generatePassword() {
   for(i=0; i<passwordLength; i++) {
     trialPassword += randomChars.charAt(Math.random()*randomChars.length);
   }
+window.alert("Your password is "+trialPassword+".");
 return trialPassword;
 }
 
